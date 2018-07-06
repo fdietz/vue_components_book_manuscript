@@ -1,7 +1,7 @@
 # Component Composition with Vue.js Slots
 
 In the previous chapter we've seen how `props` can be used to pass data to child components. In this chapter we focus on slots which
-give your components even more flexibility by passing content to child components.
+give your components even more flexibility by injecting content into child components.
 
 For this chapter we use a modal dialog as an example.
 
@@ -53,7 +53,7 @@ Let's have a look at the component:
 </template>
 ```
 
-The [complete example](src/chapter-3/example-1)
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/example-1).
 
 The `modal-body` contains a `slot` component which acts as a placeholder for our content we passed along above. It will not be visible in the browser DOM and will be replaced with our content. 
 
@@ -108,7 +108,7 @@ Note, that the `footer` slot is not used in this example. By default the existin
 </slot>
 ```
 
-The [complete example](src/chapter-3/example-2)
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/example-2).
 
 So, we still have our Close button as is.
 

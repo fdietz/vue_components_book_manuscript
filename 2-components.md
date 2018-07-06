@@ -31,7 +31,7 @@ We use the root HTML element with the `demo` id as our element to initiate Vue:
 new Vue({ el: '#components-demo' })
 ```
 
-You can find the complete example on [Github](./src/chapter-2/example-1).
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-1).
 
 What did we achieve? We used Vue.js to render this image card. But we can't really reuse this as is. We have to turn this into a component first.
 
@@ -73,6 +73,8 @@ And then instantiated:
 ```js
 new Vue({ el: '#demo' })
 ```
+
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-2).
 
 And voila! We have two cats :-)
 
@@ -126,6 +128,8 @@ And the accompanying template uses this props in the camelCase format again:
   </div>
 </template>
 ```
+
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-3).
 
 Let's have a look at the result:
 
@@ -187,6 +191,8 @@ Our template uses this count:
   </div>
 </template>
 ```
+
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-4).
 
 We use an SVG element to render a little heart and on the `click` event we increment the count by 1. A little count is displayed next to the heart with the current `count` value.
 
@@ -272,6 +278,8 @@ new Vue({
   }
 });
 ```
+
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-5).
 
 Note, that the parent doesn't know about the component's internals. It just knows that there's a change event available and that the message sends the components' `count`.
 

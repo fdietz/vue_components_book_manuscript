@@ -21,9 +21,7 @@ to Vue.js too.
 
 ## Tooling and Code Examples
 
-All example code can be found in the public [GitHub repository](https://github.com/fdietz/vue_js_book) accompanying the book.
-
-Additionally, I try to provide a [Codepen](https://codepen.io/fdietz/pen/bKjKNG) for all small examples.
+All example code can be found in the public [GitHub repository](https://github.com/fdietz/vue_components_book_examples) accompanying the book.
 
 ## Structure
 

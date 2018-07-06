@@ -4,7 +4,9 @@ In the previous chapter we focused on improving our components flexibility by us
 
 There's one catch though we have not discussed. The content we pass to our slot is in the context of the parent component and not the child component.
 
-Here's an example of a todo list component which renders for each item a checkbox and a name:
+Here's an example of a todo list component which renders for each item a checkbox and a name.
+
+![list example](/images/list.png)
 
 ```html
 <div id="demo">
@@ -30,7 +32,7 @@ new Vue({
 });
 ```
 
-The [complete example](src/chapter-4/example-1)
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-1).
 
 How can we refactor this into a reusable component? And how can be model this so the client of the component can decide how to render the list item?
 
@@ -73,7 +75,7 @@ And now make use of our new component:
 </div>
 ```
 
-The [complete example](src/chapter-4/example-2).
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-2).
 
 But, when trying this example we run into a Javascript error message:
 
@@ -124,7 +126,7 @@ Okay let's try this again:
 </div>
 ```
 
-The [complete example](src/chapter-4/example-3).
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-3).
 
 This time we use the `scope` attribute to access the child prop `item`. In this example we called the child props `slotProps` to signify the props passed to the slot.
 
@@ -163,6 +165,8 @@ Next, we use this method when rendering the list item:
   <button @click="remove(item)" class="list-item__remove">×</button>
 </template>
 ```
+
+You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-4).
 
 We add a button with a `click` event which calls our previously defined `remove` function. That's it!
 
