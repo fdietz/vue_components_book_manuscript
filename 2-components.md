@@ -29,7 +29,7 @@ The HTML for this card component consists of a large image area and body with so
 We use the root HTML element with the `demo` id as our element to initiate Vue:
 
 ```js
-new Vue({ el: '#components-demo' })
+new Vue({ el: '#demo' })
 ```
 
 You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-1).

@@ -6,6 +6,7 @@ There's one catch though we have not discussed. The content we pass to our slot 
 
 Here's an example of a todo list component which renders for each item a checkbox and a name.
 
+{width=50%
 ![Example 1](/images/list.png)
 
 ```html
