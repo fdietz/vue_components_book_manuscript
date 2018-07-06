@@ -183,6 +183,6 @@ const item = slotProps.item;
 
 This is easier to read because we can directly access the `item` everywhere instead of always going via `slotProps.item`.
 
-## Conclusion
+## Summary
 
 In this chapter we used scoped slots to allow the parent to access data from the child. This gives us lots of new possibilities which weren't possible before. This feature is especially useful in scenarios when you want to leave the rendering of the slot content to user of the component. In our case the list component is very reusable by decoupling the rendering of the list items.

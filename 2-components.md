@@ -9,6 +9,7 @@ We will start with a simple example component and gradually improve its function
 
 Let's start with a simple and fun image card example. Who doesn't like cats?
 
+{width=50%}
 ![cat](images/image_card.png)
 
 The HTML for this card component consists of a large image area and body with some text:
@@ -283,56 +284,7 @@ You can find the complete example on [Github](https://github.com/fdietz/vue_comp
 
 Note, that the parent doesn't know about the component's internals. It just knows that there's a change event available and that the message sends the components' `count`.
 
-## Conclusion
+## Summary
 
 In this chapter we explored the base concepts of a component model. We discussed component reuse and encapsulation,
 how to use props to pass data to children and how to emit events to pass messages to the parent.
-
-###########################################################################################################################
-
-
-## Benefits of a component based UI development
-
-* reuse components
-* accelerate development since components are hosted in library and can be integrated in the development process
-
-## Definition
-
-Brian Ford Definition of a component:
-“The main primitive (speaking about React, Angular & Ember) is this idea of a ‘component’. I think everyone has some notion of what a component is. The idea is that it should be an atomic UI piece that is composable and reusable, and should work with other pieces in a way that’s performant.”
-
-“We’re not designing pages, we’re designing systems of components.”
-
-A component is made up of some parts HTML, some parts CSS and some parts Javascript.  A complex tree of UI components can then be used to create large front-end applications
-
-## The component and composition model
-
-frameworks’ unit of work are the component
-
-Everything is based around Components, nesting them within each other, passing data between them and so on.
-
-This is a win for the developers since the mental model is the same for all the most widespread frameworks.
-
-## State and Mutation
-
-tackle is binding data to the DOM somehow (instead of using jQuery)
-
-The preferred pattern in all 3 frameworks is to avoid directly mutating data passed from a parent in favour of informing said parent that a state change should happen.
-
-Data passing patterns are simplified with a component-based application: the communication is only done from the parent to the child and vice-versa.
-
-In Vue, props are passed from parent to child and the child can emit events back to the parent.
-
-The way to pass data between “sibling” components is solved in the same way in all these frameworks by finding the nearest common parent in the tree and encapsulating state and state updates there.
-
-## Lifecycle
-
-mount/unmount which refers to the component being initialised in the DOM
-
-## Render
-
-Component update or render if local state changes or input props change.
-
-## Global Stores
-
-When an application needs shared data in components that are quite far apart in the component tree, it’s time to use a store.

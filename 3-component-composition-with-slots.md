@@ -112,6 +112,6 @@ You can find the complete example on [Github](https://github.com/fdietz/vue_comp
 
 So, we still have our Close button as is.
 
-## Conclusion
+## Summary
 
 In this chapter we looked into slots and named slots to compose our components and content in a very flexible way.
