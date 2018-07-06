@@ -5,7 +5,8 @@ give your components even more flexibility by injecting content into child compo
 
 For this chapter we use a modal dialog as an example.
 
-![modal dialog](/images/modal.png)
+{width=50%}
+![Modal Dialog with close button](/images/modal.png)
 
 ## Slots as Content Placeholders
 
@@ -57,7 +58,7 @@ You can find the complete example on [Github](https://github.com/fdietz/vue_comp
 
 The `modal-body` contains a `slot` component which acts as a placeholder for our content we passed along above. It will not be visible in the browser DOM and will be replaced with our content. 
 
-![modal dom](images/modal_dom.png)
+![Screenshot of Chrome Devtools Elements Tab](images/modal_dom.png)
 
 The `modal-background` class used to render a darkened overlay underneath the modal dialog. Additionally, it emits a `click` event to close the dialog. The `self` [event modifier](https://vuejs.org/v2/guide/events.html#Event-Modifiers) is used to make sure the event is only emitted when clicking the background and not when clicking the modal dialog itself.
 

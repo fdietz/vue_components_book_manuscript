@@ -10,7 +10,7 @@ We will start with a simple example component and gradually improve its function
 Let's start with a simple and fun image card example. Who doesn't like cats?
 
 {width=50%}
-![cat](images/image_card.png)
+![A cute cat](images/image_card.png)
 
 The HTML for this card component consists of a large image area and body with some text:
 
@@ -79,7 +79,7 @@ You can find the complete example on [Github](https://github.com/fdietz/vue_comp
 
 And voila! We have two cats :-)
 
-![two cats](images/image_card_two_cats.png)
+![Example 2](images/image_card_two_cats.png)
 
 Now, two cats are obviously better than one cat and we showed that we can have several instances of our `image-card` component on the same page.
 
@@ -134,7 +134,7 @@ You can find the complete example on [Github](https://github.com/fdietz/vue_comp
 
 Let's have a look at the result:
 
-![two different cats](images/image_card_with_props.png)
+![Example 3](images/image_card_with_props.png)
 
 It worked! We have used two instances of our `image-card` component with different props.
 
@@ -197,7 +197,7 @@ You can find the complete example on [Github](https://github.com/fdietz/vue_comp
 
 We use an SVG element to render a little heart and on the `click` event we increment the count by 1. A little count is displayed next to the heart with the current `count` value.
 
-![two cats keeping count](images/image_card_with_state.png)
+![Example 4](images/image_card_with_state.png)
 
 Note, that each component instance has its own local state of `count` which can be changed independently from the other component's `count`.
 
