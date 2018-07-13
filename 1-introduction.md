@@ -2,7 +2,7 @@
 
 ## Welcome
 
-Vue.js is a progressiv web framework for building user interfaces. It is designed to be incrementally adoptable and
+Vue.js is a progressiv web framework for building user interfaces created by Evan You. It is designed to be incrementally adoptable and
 therefore easy to pick up in existing projects. But, on the other hand capable of powering sophisticated applications.
 
 This book assumes that the reader has some basic unterstanding of Vue.js. It builds on that knowledge to give the reader
@@ -28,10 +28,13 @@ All example code can be found in the public [GitHub repository](https://github.c
 Chapter 2 will start with a high level introduction of components and their properties. I will provide the mental model for all
 the upcoming chapters.
 
-In chapter 2 we will discuss the Vue.js concept of `slots` and `scoped slots`. This chapter alone will let you tremendously
-model your application code differently by using component composition.
+In chapter 2 we will discuss the Vue.js concept of `slots` and `named slots` for component composition.
 
-Chapter 3 discusses the difference between Vue.js `scoped slots` and render props.
+Chapter 3 introduces `scoped slots` and which problems you can solve with them.
 
-Chapter 4 will introduce you to High Order components and will give you yet another possibility of composing your components
-in a functional approach.
+## Images used in this book
+
+Most images are are from [unsplash.com](unsplash.com), as for example:
+* [The cat](https://unsplash.com/photos/V7RugxejXH)
+* [Another cat](https://unsplash.com/photos/FT9SsFEXqF4)
+* [Cat 3](https://unsplash.com/photos/_FoHMYYlatI)

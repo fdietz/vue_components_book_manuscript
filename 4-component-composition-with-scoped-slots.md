@@ -2,11 +2,13 @@
 
 In the previous chapter we focused on improving our components flexibility by using multiple `slots` as placeholders for our content.
 
-There's one catch though we have not discussed. The content we pass to our slot is in the context of the parent component and not the child component.
+There's one catch though we have not discussed. The content we pass to our slot is in the context of the parent component and not the child component. This sounds quite abstract, let's build an example component and investigate the problem further!
+
+## Example List
 
 Here's an example of a todo list component which renders for each item a checkbox and a name.
 
-{width=50%
+{width=50%}
 ![Example 1](/images/list.png)
 
 ```html
@@ -33,11 +35,13 @@ new Vue({
 });
 ```
 
-You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-1).
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-1).
 
-How can we refactor this into a reusable component? And how can be model this so the client of the component can decide how to render the list item?
+In the next step we refactor this code into a reusable list component and our goal is to leave it up to the client of the component to decide what and how to render the list item.
 
-Let's start with the implementation of a List component:
+## Refactor to List component
+
+Let's start with the implementation of the List component:
 
 ```js
 Vue.component("List", {
@@ -76,13 +80,11 @@ And now make use of our new component:
 </div>
 ```
 
-You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-2).
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-2).
 
-But, when trying this example we run into a Javascript error message:
+But, when trying this example we run into a Javascript error message.
 
-```text
-ReferenceError: item is not defined
-```
+E> ReferenceError: item is not defined
 
 It seems we cannot access `item` from our slot content. In fact the content we passed runs in the context of the parent and not the child component `List`.
 
@@ -127,13 +129,15 @@ Okay let's try this again:
 </div>
 ```
 
-You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-3).
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-3).
 
-This time we use the `scope` attribute to access the child prop `item`. In this example we called the child props `slotProps` to signify the props passed to the slot.
+This time we use the `scope` attribute and assign the name `slotProps` to it. Inside this scoped slot we can access all props passed along via this `slotProps` variable.
 
-Tip: In 2.5.0+, scope is no longer limited to the `<template>` element, but can instead be used on any element or component in the slot.
+T> In 2.5.0+, scope is no longer limited to the `<template>` element, but can instead be used on any element or component in the slot.
 
-Now that we know how to pass data along we are free to extend the list item with some new functionality with changing the List component. It would be awesome if could remove a todo item!
+## Extend the rendering of the list item
+
+Now that we know how to pass data along we are free to extend the list item with some new functionality without changing the List component. It would be awesome if we could remove a todo item!
 
 First of all we define the Vue app with a method to remove a todo item:
 
@@ -163,11 +167,13 @@ Next, we use this method when rendering the list item:
 <template scope="{item}" class="list-item">
   <input type="checkbox" v-model="item.completed" class="list-item__checkbox" />
   <div class="list-item__title">{{item.name}}</div>
-  <button @click="remove(item)" class="list-item__remove">×</button>
+  // leanpub-start-insert
+  <button @click="remove(item)" class="list-item__remove">x</button>
+  // leanpub-end-insert
 </template>
 ```
 
-You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-4).
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-4).
 
 We add a button with a `click` event which calls our previously defined `remove` function. That's it!
 
@@ -182,8 +188,8 @@ const { item } = slotProps;
 const item = slotProps.item;
 ```
 
-This is easier to read because we can directly access the `item` everywhere instead of always going via `slotProps.item`.
+This is easier to read because we can directly use the `item` variable instead of always going via `slotProps.item`.
 
 ## Summary
 
-In this chapter we used scoped slots to allow the parent to access data from the child. This gives us lots of new possibilities which weren't possible before. This feature is especially useful in scenarios when you want to leave the rendering of the slot content to user of the component. In our case the list component is very reusable by decoupling the rendering of the list items.
+In this chapter we used scoped slots to allow the parent to access data from the child. This gives us lots of new possibilities which weren't possible before. This feature is especially useful in scenarios where you want to leave the rendering of the slot content to the user of the component. In our case the list component is very reusable by decoupling the rendering of the list items.

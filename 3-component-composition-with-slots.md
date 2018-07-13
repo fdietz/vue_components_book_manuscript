@@ -35,7 +35,7 @@ The `showModal` value is set to `true` on button click:
 
 Our `modal` component children consist of some example HTML heading and paragraph we'd like to show inside the modal dialog.
 
-Additionally, a `close` event is send by the modal component if the component's close button was pressed.
+Additionally, we listen to the `@close` event in case the user closes the modal dialog by pressing the close button.
 
 Let's have a look at the component:
 
@@ -54,17 +54,18 @@ Let's have a look at the component:
 </template>
 ```
 
-You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/example-1).
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/example-1).
 
 The `modal-body` contains a `slot` component which acts as a placeholder for our content we passed along above. It will not be visible in the browser DOM and will be replaced with our content. 
 
+{width=70%}
 ![Screenshot of Chrome Devtools Elements Tab](images/modal_dom.png)
 
 The `modal-background` class used to render a darkened overlay underneath the modal dialog. Additionally, it emits a `click` event to close the dialog. The `self` [event modifier](https://vuejs.org/v2/guide/events.html#Event-Modifiers) is used to make sure the event is only emitted when clicking the background and not when clicking the modal dialog itself.
 
 ## Named Slots
 
-In our previous example we used the "default slot" to pass along all content to our modal component. In the next example we improve the modal dialog component further by using "named slots" which enables users of the component to pass along content to multiple named slots.
+In our previous example we used the "default slot" to pass along all content to our modal component. In the next example we improve the modal dialog component further by using "named slots" which enables users of the component to inject content in multiple places.
 
 In order to become more flexible, we introduce named slots for the header, body and footer. Here is the definition of our markup:
 
@@ -99,7 +100,7 @@ The usage of these named slots is quite similar to the default slot:
 </modal>
 ```
 
-We can use whatever HTML element we want for our content and use the `slot` attribute to select the appropriate slot we want to use.
+We can use whatever HTML element we want for our content and use the `slot` attribute to select the appropriate slot we want to use. This not only includes HTML elements but also other Vue.js components.
 
 Note, that the `footer` slot is not used in this example. By default the existing slot content will be used. In our case the `footer` slot is defined like this:
 
@@ -109,7 +110,7 @@ Note, that the `footer` slot is not used in this example. By default the existin
 </slot>
 ```
 
-You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/example-2).
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/example-2).
 
 So, we still have our Close button as is.
 
