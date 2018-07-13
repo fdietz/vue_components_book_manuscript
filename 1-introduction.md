@@ -1,6 +1,4 @@
-# Introduction
-
-## Welcome
+# Welcome
 
 Vue.js is a progressiv web framework for building user interfaces created by Evan You. It is designed to be incrementally adoptable and
 therefore easy to pick up in existing projects. But, on the other hand capable of powering sophisticated applications.
