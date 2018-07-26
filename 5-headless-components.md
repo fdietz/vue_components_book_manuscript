@@ -63,6 +63,8 @@ new Vue({
 });
 ```
 
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-1)
+
 The example by itself is not really showing the flexibility of the headless component pattern. But, it exemplifies the complete separation of state management logic and the actual rendering. The latter is completely up to the client to implement. 
 
 Let's implement another example but this time with a more complex component: the switch component.
@@ -139,6 +141,8 @@ Vue.component("Toggle", {
 });
 ```
 
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-2)
+
 The component is now solely defined via Javascript containing the business logic. No template used at all. Nice!
 
 Let's see how far we can go with our `Toggle` component and if we can make it even more flexible.
@@ -183,6 +187,8 @@ We use a button to toggle the state again using the `toggle` prop and the `activ
 ```
 
 Note, how the `active` prop is used with the `v-if` directive? This will either hide or show the vertical rectangle.
+
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-3)
 
 There's an opportunity here to generalize the `Toggle` component even more. We could always support the toggling action by providing a `click` event. And the `aria-expanded` attribute could be somehow passed along, too.
 
@@ -242,6 +248,8 @@ Vue.component("Toggle", {
   }
 });
 ```
+
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-4)
 
 The scoped slot passes along the `togglerProps` with the `aria-expanded` attribute and the `togglerEvents` with the `click` event to toggle the state.
 
@@ -306,6 +314,8 @@ Vue.component("Request", {
   }
 });
 ```
+
+I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-5)
 
 The `Request` defines the `url` props as it's only configuration and maintains the `response` and the `loading` state. The `created` lifecycle hook is used to fire the HTTP GET request and places the successfull response in the response state. And finally the `render` function passes this information along via the scoped slot mechanism.
 
