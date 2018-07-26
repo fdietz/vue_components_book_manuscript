@@ -4,7 +4,7 @@ In this chapter we'd like to further investigate the usage of scoped slots by in
 
 Headless components aim for maximum flexibility by completely separating the logic from the rendering. This is especially useful when a component contains a large amount of business logic.
 
-Let's look into a typical example made famous by Kent Dodds when he introduced these concepts more deeply in the context of React where render props are used for similar problems.
+Let's look into a typical example made famous by [Kent Dodds](https://kentcdodds.com/) when he introduced these concepts more deeply in the context of React where render props are used for similar problems.
 
 ## The Toggle Component
 
@@ -21,7 +21,7 @@ The usage of a component can be best used to figure out the component requiremen
 </Toggle>
 ```
 
-We start with a button which toggles the `active` state. The `active` and `toggle` props are passed along via a `slot-scope` as seen already in the previous chapter. The `change` event is useful to users of the component to get notified of changes.
+We start with a button which toggles the `active` state. The `active` and `toggle` props are passed along via a `slot-scope` as seen already in the previous chapter. The `change` event is useful to users of the `Toggle` component to get notified of changes.
 
 The template of our `Toggle` only really needs to use the `slot` mechanism to pass these props along:
 
@@ -86,7 +86,12 @@ The switch component's implementation is not important for this example, but let
 ```js
 Vue.component("SwitchToggle", {
   template: "#switch-template",
-  props: ["value, input"]
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  }
 });
 ```
 
@@ -142,7 +147,8 @@ Let's see how far we can go with our `Toggle` component and if we can make it ev
 
 Our `Toggle` can be reused again for a completely different use case. We want to implement a simple expand/collapse toggle which looks like this.
 
-![Example 2](expand_collapse.png)
+%{width: 60%}
+![Example 2](images/expand_collapse.png)
 
 And we can achieve it by using markup only:
 
@@ -165,7 +171,18 @@ And we can achieve it by using markup only:
 </Toggle>
 ```
 
-We use a button to toggle the state again using the `toggle` prop and the `active` prop is used to conditionally render the expandable content. Additionally, the `active` prop is used to render a slightly different SVG icon depending on if the state is expanded or collapsed.
+We use a button to toggle the state again using the `toggle` prop and the `active` prop is used to conditionally render the expandable content. Additionally, the `active` prop is used to render a slightly different SVG icon depending on if the state is expanded or collapsed:
+
+```html
+<svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+  <!-- leanpub-start-insert -->
+  <rect v-if="active" height="8" width="2" y="1" x="4"/>
+  <!-- leanpub-end-insert -->
+  <rect height="2" width="8" y="4" x="1"/>
+</svg>
+```
+
+Note, how the `active` prop is used with the `v-if` directive? This will either hide or show the vertical rectangle.
 
 There's an opportunity here to generalize the `Toggle` component even more. We could always support the toggling action by providing a `click` event. And the `aria-expanded` attribute could be somehow passed along, too.
 
@@ -192,7 +209,7 @@ Let's first check how the usage would look like after making these props availab
 
 The `slot-scope` now provides `active`, `togglerProps` and `togglerEvents` and the `toggle` is gone. The `togglerProps` is actually not a single prop but an object with multiple props. Is is therefore convenient to use `v-bind` to apply all props automatically. Same goes for the `togglerEvents` where we have to use `v-on` instead, since these are events.
 
-The implementation of `Toggle` component slightly changed to pass along these new props:
+The implementation of `Toggle` component slightly changes to pass along these new props:
 
 ```js
 Vue.component("Toggle", {
@@ -250,7 +267,16 @@ Let's have a look at the example usage:
 </request>
 ```
 
-The `request` component uses the `url` prop to config which URL we want to request. In this case we use a free service to return some arbitrary JSON payload back.
+The `request` component uses the `url` prop to config which URL we want to request. In this case we use a free service to return some arbitrary JSON payload back:
+
+```js
+{
+  userId: 1,
+  id: 1,
+  title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  body: "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
+}
+```
 
 The `slot-scope` passes not only the result back as `data` but also gives us a `loading` prop which we use to show a loading indicator while the request is in the loading state. Only after the loading is done we show the response data.
 
@@ -283,10 +309,30 @@ Vue.component("Request", {
 
 The `Request` defines the `url` props as it's only configuration and maintains the `response` and the `loading` state. The `created` lifecycle hook is used to fire the HTTP GET request and places the successfull response in the response state. And finally the `render` function passes this information along via the scoped slot mechanism.
 
-This pattern of co-locating the data with the component is actually not far fetched and used by other libraries extensively. You can see examples in the wild as for example in Apollo's GraphQL client where a `Query` and `Mutation` component handle data requirements. 
+This pattern of co-locating the data with the component is actually not far fetched and used by other libraries extensively. You can see examples in the wild as for example in [vue-apollo](https://github.com/Akryum/vue-apollo), the Vue.js Apollo GraphQL client, where a `Query` and `Mutation` component handle data requirements. 
+
+Here's an example from the documentation:
+
+```html
+<div class="users-list">
+  <!-- Apollo Query -->
+  <ApolloQuery :query="require('@/graphql/users.gql')">
+    <!-- The result will automatically updated -->
+    <template slot-scope="{ result: { data, loading } }">
+      <!-- Some content -->
+      <div v-if="loading">Loading...</div>
+      <ul v-else>
+        <li v-for="user of data.users" class="user">
+          {{ user.name }}
+        </li>
+      </ul>
+    </template>
+  </ApolloQuery>
+</div>
+```
 
 ## Summary
 
-In this chapter we looked into Headless or Renderless components using Vue.js scoped lots and showed how to create highly reusable components which focus only the logic and leave the rendering to the client.
+In this chapter we looked into Headless or Renderless components using Vue.js scoped lots and showed how to create highly reusable components which focus only on the logic and leave the rendering to the client.
 
 It is fascinating that Vue.js slot mechanism can be used for such a large variety of use cases. And it will be interesting to watch the community come up with even more ideas.
