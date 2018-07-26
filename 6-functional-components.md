@@ -134,4 +134,6 @@ return (
 
 More on JSX syntax in the [Vue.js guide]([Vue.js guide](https://vuejs.org/v2/guide/render-function.html#JSX).
 
-I'm not recommending to always use JSX now, but it certainly has it strengths for some use cases and it is therefore beneficial to know the limitations of the Vue.js template language and the pros and cons of JSX compared to that. Me personally, I favor using Vue.js templates for almost all components. The only reason for me to use JSX is when dealing with very dynamic component creation where the number of `v-if` and `v-else` makes the code less readible.
+## Summary
+
+I'm not recommending to always use JSX now, but it certainly has it strengths for some use cases and it is therefore beneficial to know the limitations of the Vue.js template language and the pros and cons of JSX compared to that. I personally favor using Vue.js templates for almost all components. The only reason for me to use JSX is when dealing with very dynamic component creation where the number of `v-if` and `v-else` makes the code less readible.
