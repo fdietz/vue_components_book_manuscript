@@ -1,4 +1,4 @@
-# Prop Drilling
+# The Prop Drilling Problem
 
 Prop drilling is not really a pattern, but an actual problem. It describes a situation with multiple nested components where each component passes along the same props. This leads to hard to maintain code, since changing the props leads to changes in all the components of this nested hierarchy.
 
