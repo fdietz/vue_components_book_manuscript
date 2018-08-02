@@ -4,6 +4,8 @@ We have already seen quite a few examples of flexible components using render fu
 
 In this chapter we discuss the usage of the `<component>` tag.
 
+## Using the `<component is>` feature
+
 As an example we use a tab navigation where the content of a tab is rendered dynamically.
 
 Let's start with the tab content:
@@ -22,7 +24,7 @@ Vue.component('tab-archive', {
 });
 ```
 
-I'm using common name prefix `tab-` here to make it easier to lookup these components later.
+I'm using a common name prefix `tab-` here to make it easier to lookup these components later.
 
 Now, to render the component dynamically we use the `<component>` tag and give it a name via the `is` prop:
 
@@ -51,7 +53,7 @@ new Vue({
 
 We use the `tabs` for the list of all tabs we want to render and the `currentTab` to maintain the selection. The actual component's name is concatenated as a computed property `currentTabComponent`.
 
-In the next step we look into the markup to render the tabs:
+Next we look into the markup to render the tabs:
 
 ```html
 <div id="demo">
@@ -77,10 +79,12 @@ In the next step we look into the markup to render the tabs:
 
 I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-7/example-1)
 
-We use a `v-for` directive to render a list of tabs using the `currentTab` to set the `active` class. The `@click` event is used to change the `currentTab` state.
+We use a `v-for` directive to render a list of tabs using the `currentTab` to set the `active` class. The `@click` event is used to change the `currentTab` state. Clicking on a tab will change the `background-color` to visually indicate the active state.
 
-The `component` passes along the `class` prop to the actual component it renders. Nice!
+The `<component>` uses the `currentTabComponent` computed property to render the active tab content.
+
+Note, how it passes along the `class` prop to the actual component it renders. Nice!
 
 ## Summary
 
-The `<component>` tag is quite a powerful feature and in some use cases it might be easier to use it instead of slots and custom code.
+The `<component>` tag is quite a powerful feature and in some use cases it might be easier to use instead of slots and custom code.

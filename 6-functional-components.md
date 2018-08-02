@@ -2,16 +2,18 @@
 
 In most Vue.js apps there are a lot of components which do not really do anything besides rendering a template. They do not contain any business logic or make use of the component lifecycle.
 
-In this case using a functional component might remove some unnecessary boilerplate. You can think of a functional component to be the equivalent of a function which takes a render context as input and returns rendered HTML.
+In this case using a functional component might remove some unnecessary boilerplate and the component renders faster too! 
+
+You can think of a functional component to be the equivalent of a function which takes a render context as input and returns rendered HTML.
 
 In this chapter we explore how and when to use functional components and the pros and cons of them.
 
 ## Functional components using the vue-cli and SFC
 
 Let's start with a new default project created via the [vue-cli](https://cli.vuejs.org/), following the [offical guide](https://cli.vuejs.org/guide/creating-a-project.html#installation)
-with the default setup.
+using the default setup.
 
-It should generate a `App.vue` and a `HelloWorld.vue` file for you which we start modifying for our example.
+It should generate an `App.vue` and a `HelloWorld.vue` file for you which we start modifying for our example.
 
 The `App.vue` file imports the `HelloWorld` component which has a `msg` prop and a `@click` event. We use this event to increment a `clickCount`.
 
@@ -42,7 +44,7 @@ export default {
 </script>
 ```
 
-The `HelloWorld` component contains a template only:
+The `HelloWorld` component consists of a template only:
 
 ```html
 <template functional>
@@ -56,11 +58,11 @@ The `HelloWorld` component contains a template only:
 
 I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-1)
 
-Note, that the template has an additional `functional` attribute. Due to this flag Vue.js changes how you access the context of the component. Where you previously accessed props like `msg` directly, you now need to use `prop.msg` instead and events via `listeners.click`. 
+Note, that the template has an additional `functional` attribute. This flag turns the component into a functional component. Additionally, Vue.js changes how you access the context of the component. Where you previously accessed props like `msg` directly, you now need to use `prop.msg` instead and events via `listeners.click`. 
 
 All these changes in usage are necessary since a functional component has no instance or state and therefore no `this` or `data`.
 
-If you need to create lots of small presentational/visual components, as for example a Heading, functional components make a lot of sense.
+If you need to create lots of small mainly visual components, as for example a Heading, functional components make a lot of sense.
 
 ## Functional components using Vue.component and render function
 
@@ -68,7 +70,9 @@ There is another way of using functional components using the `Vue.component` fu
 
 ```js
 Vue.component("hello-world", {
+  // leanpub-start-insert
   functional: true,
+  // leanpub-end-insert
   render(createElement, {data, listeners, slots}) {
     return createElement("div", { class: "hello" }, [
       createElement('h2', data.attrs.msg),
@@ -113,7 +117,7 @@ export default {
   }
 };
 </script>
-```js
+```
 
 I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-3)
 
@@ -132,8 +136,10 @@ return (
 );
 ```
 
-More on JSX syntax in the [Vue.js guide]([Vue.js guide](https://vuejs.org/v2/guide/render-function.html#JSX).
+More on JSX syntax in the [Vue.js guide](https://vuejs.org/v2/guide/render-function.html#JSX).
 
 ## Summary
 
-I'm not recommending to always use JSX now, but it certainly has it strengths for some use cases and it is therefore beneficial to know the limitations of the Vue.js template language and the pros and cons of JSX compared to that. I personally favor using Vue.js templates for almost all components. The only reason for me to use JSX is when dealing with very dynamic component creation where the number of `v-if` and `v-else` makes the code less readible.
+I'm not recommending to always use JSX now, but it certainly has it strengths for some use cases and it is therefore beneficial to know the limitations of the Vue.js template language and the pros and cons of JSX compared to that. 
+
+D> I personally favor using Vue.js templates for almost all components. The only reason for me to use JSX is D> when dealing with very dynamic component creation where the number of `v-if` and `v-else` makes the code D> less readible.

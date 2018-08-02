@@ -1,6 +1,6 @@
 # Mixins, extending components and High Order Components
 
-This is the first chapter which doesn't really deal with component composition, but instead focuses on code reuse with various concepts including Mixins, extending existing components and even high order components. We want to focus on mixins first, since this is simplest concept directly supported by Vue.js and then proceed to more advanced patterns.
+This is the first chapter which doesn't really deal with component composition, but instead focuses on code reuse with various concepts including Mixins, extending existing components and even high order components. We want to focus on mixins first, since this is the simplest concept directly supported by Vue.js and then proceed to more advanced patterns.
 
 Mixins are a way to reuse functionality in multiple Vue components. When a component uses a mixin, all options and functions will be "mixed" or "merged" into the component's own options. We differentiate between global and local mixins, whereas the former is used in the Vue instance.
 
@@ -127,7 +127,7 @@ const DataLoader = Vue.mixin({
 });
 ```
 
-It provides a `load` method which uses axios again to fetch some data from a remote url. Additionally, the `loading` and `response` data is provided for you.
+It provides a `load` method which uses [axios](https://github.com/axios/axios) again to fetch some data from a remote url. Additionally, the `loading` and `response` data is provided for you.
 
 Let's use this mixin in our component:
 
@@ -161,7 +161,7 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 
 There's one aspect of a mixin we haven't discussed yet. How intelligent is the actual merging strategy? In fact if your component has it's own state `loading` or `response` it would conflict with the mixin state and would certainly cause confusion. Same goes for methods, components and directive options: The component always has priority. When it comes to lifecyle methods, both will be called but the mixin's method will be called first.
 
-There a whole chapter dedicated to merging in the [Vue.js guide](https://vuejs.org/v2/guide/mixins.html#Option-Merging).
+There's a whole chapter dedicated to merging strategies in the [Vue.js guide](https://vuejs.org/v2/guide/mixins.html#Option-Merging).
 
 ## Extending components
 
@@ -204,7 +204,7 @@ const BaseArticleCard = Vue.component("base-article-card", {
 });
 ```
 
-I've used very similar code again to fetch the data via axios request library in the `created` hook via a `load` method. An `id` prop is used to identify the user for the request.
+I've used very similar code again to fetch the data via [axios](https://github.com/axios/axios) request library in the `created` hook via a `load` method. An `id` prop is used to identify the user for the request url.
 
 The template then renders the user data depending on the loading state:
 
@@ -247,13 +247,13 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 
 All options of the base component are reused in our new component, except the template where we decided to use our own. 
 
-To be honest with you, I had quite a hard time to come up with a sensible example for the `Vue.extend` feature. In almost all cases I come up with I personally prefer using mixins instead.
+D> To be honest with you, I had quite a hard time to come up with a sensible example for the `Vue.extend` D> feature. In almost all cases I come up with I personally prefer using mixins instead.
 
 ## High Order Components
 
-HOCs are components which return another component but extend the behaviour in a useable way. Our data loading component is again a good example to get our feet wet with High Order components. So, we want to extend the card component from the previous example with a HOC which fetches data and passes this data along to the component via props.
+HOCs are components which return another component but extend the behaviour in a reuseable way. Our data loading component is again a good example to get our feet wet with High Order components. So, we want to extend the card component from the previous example with a HOC which fetches data and passes this data along to the component via props.
 
-In order to use these we again need to use the `vue-cli` to generate a project using SFC.
+In our next example we need to use the `vue-cli` to generate a project using SFC.
 
 The usage of a HOC looks like this:
 
@@ -314,9 +314,9 @@ const withLoader = component => {
 export default withLoader;
 ```
 
-The `withLoader` function returns a new component which wraps our component and passes along some props with the fetched data in the `render` function.
+The `withLoader` function returns a new component which wraps our component and passes along some props including `loading`, `title` and `body` in the `render` function.
 
-Our card component can then render this data:
+Our card component can then render this data, without knowing that it is wrapped by a HOC component:
 
 ```html
 <template>
@@ -343,15 +343,13 @@ export default {
 I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-4)
 
 There are a lot of open questions here. For example in the current implementation we cannot just pass along some additional props without changing the HOC component since it needs to pass these props
-explicitly currently. It's not really a problem for such small examples, but it shows that there's is no easy way to compose components using generics HOCs with Vue.js built-in functionality.
-
-The [vue-hoc](https://github.com/jackmellis/vue-hoc/blob/master/packages/vue-hoc/README.md) project discusses and implements some useful helpers to work around these problems.
+explicitly . It's not really a problem for such a small example, but it shows that there is no easy way to compose components using generics HOCs with Vue.js built-in functionality.
 
 ## Summary
 
 There's an ongoing discussion in the Vue.js community about the use of HOCs, or High Order Components. These are quite popular in the React community actually.
 
 If you are interested in the discussion and props and cons of using HOCs in Vue.js, I can highly recommend this [article](https://medium.com/bethink-pl/do-we-need-higher-order-components-in-vue-js-87c0aa608f48)
-by Bogna Knychała and the [vue-hoc](https://github.com/jackmellis/vue-hoc/blob/master/packages/vue-hoc/README.md) project.
+by Bogna Knychała and the [vue-hoc](https://github.com/jackmellis/vue-hoc/blob/master/packages/vue-hoc/README.md) project which implements some useful helpers to work around these problems.
 
-Personally, I prefer to use slots and scoped slots instead of HOCs but your mileage may vary.
+D> Personally, I prefer to use slots and scoped slots instead of HOCs but your mileage may vary.

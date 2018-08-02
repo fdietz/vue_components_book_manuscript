@@ -70,6 +70,8 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 
 The Vue instance has the `user` state and passes this user as a prop to the `page-layout` component. You can tell that even a simple user case like renaming the user props, means we have to touch each component definition and template.
 
+## Solution using slots
+
 The solution is in this case to use slots and move the creation of the component hierarchy into the top level:
 
 ```html

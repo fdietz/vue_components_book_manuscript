@@ -1,4 +1,4 @@
-# Component Composition with Vue.js Slots
+# Component Composition with Slots
 
 In the previous chapter we've seen how `props` can be used to pass data to child components. In this chapter we focus on slots which
 give your components even more flexibility by injecting content into child components.
