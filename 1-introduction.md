@@ -26,13 +26,30 @@ All example code can be found in the public [GitHub repository](https://github.c
 Chapter 2 will start with a high level introduction of components and their properties. I will provide the mental model for all
 the upcoming chapters.
 
-In chapter 2 we will discuss the Vue.js concept of `slots` and `named slots` for component composition.
+In chapter 3 we will discuss the Vue.js concept of `slots` and `named slots` for component composition.
 
-Chapter 3 introduces `scoped slots` and which problems you can solve with them.
+Chapter 4 introduces `scoped slots` and which problems you can solve with them.
+
+In chapter 5 we discuss headless components which provide high flexibility by separating logic from rendering.
+
+Chapter 6 introduces functional components, useful when you don't need state or lifecycle in your component.
+
+Dynamic component rendering in chapter 7 shows how to use the `<component is>` pattern, a built-in Vue.js feature.
+
+In chapter 8 we switch focus to code reuse using mixins and high order components.
+
+Chapter 9 introduces a concept where a complex component is separated into a smart and dumb component to provide more flexibility.
+
+The problem of "prop drilling" is explained in chapter 10 and one possible solution is offered with using more advanced state management.
+
+Chapter 11 introduces the provide/inject API useful for plugin and component authors who deal with similar problems.
+
+In chapter 12 we discuss loading components asynchronously and how to handle loading and error state.
 
 ## Images used in this book
 
 Most images are are from [unsplash.com](unsplash.com), as for example:
+
 * [The cat](https://unsplash.com/photos/V7RugxejXH)
 * [Another cat](https://unsplash.com/photos/FT9SsFEXqF4)
 * [Cat 3](https://unsplash.com/photos/_FoHMYYlatI)

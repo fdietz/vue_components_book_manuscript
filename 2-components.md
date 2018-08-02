@@ -286,6 +286,8 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 
 Note, that the parent doesn't know about the component's internals. It just knows that there's a change event available and that the message sends the component's `count`.
 
+The event emitted via `this.$emit("event")` is only send to the parent component. It will not bubble up the component hierarchy similar to native DOM events.
+
 ## Summary
 
 In this chapter we explored the base concepts of a component model. We discussed component reuse and encapsulation,
