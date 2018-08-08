@@ -138,6 +138,25 @@ return (
 
 More on JSX syntax in the [Vue.js guide](https://vuejs.org/v2/guide/render-function.html#JSX).
 
+## Exercises
+
+### Timeago component
+
+Implement a functional component which prints a relative date time for a given date using a configurable HTML element.
+
+Use the [date-fns](https://date-fns.org/) library for the formatting like this:
+
+```html
+<script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+<script>
+console.log("relative date time", dateFns.distanceInWords(new Date("2018-08-17"), new Date()));
+</script>
+```
+
+The HTML element should be configurable using a `tag` prop.
+
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/exercise-1).
+
 ## Summary
 
 I'm not recommending to always use JSX now, but it certainly has it strengths for some use cases and it is therefore beneficial to know the limitations of the Vue.js template language and the pros and cons of JSX compared to that. 

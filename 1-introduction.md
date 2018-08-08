@@ -21,6 +21,8 @@ to Vue.js too.
 
 All example code can be found in the public [GitHub repository](https://github.com/fdietz/vue_components_book_examples) accompanying the book.
 
+Especially for the exercises you will always find a `start.html` and `solution.html` or directories named accordingly.
+
 ## Structure
 
 Chapter 2 will start with a high level introduction of components and their properties. I will provide the mental model for all

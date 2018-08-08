@@ -288,7 +288,9 @@ Note, that the parent doesn't know about the component's internals. It just know
 
 The event emitted via `this.$emit("event")` is only send to the parent component. It will not bubble up the component hierarchy similar to native DOM events.
 
-## Exercise
+## Exercises
+
+## Twitter Item Component Composition
 
 Let's play around with all these new concepts and build something similar to a Twitter stream.
 
@@ -301,7 +303,7 @@ Your exercise is to refactoring this code using component composition to turn th
 
 My feeling is that the actions would be even nicer if they would show different colors on hover, like on actual Twitter!
 
-I> You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/exercise-1).
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/exercise-1).
 
 ## Summary
 

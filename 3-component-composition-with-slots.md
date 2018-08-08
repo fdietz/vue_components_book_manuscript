@@ -114,6 +114,21 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 
 So, we still have our Close button as is.
 
+## Exercises
+
+### Extending the Modal Dialog
+
+Extend the modal dialog code with some more advanced features. First, support closing the dialog via `ESC` key. Secondly, we want to improve support for screen readers by adding the aria attributes `aria-labelledby`, `aria-describedby` for
+the title and description respectively. Additionally, set the `role` attribute to the value of `dialog` and add an `aria-label` to the close button.
+
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/exercise-1).
+
+### Twitter Item Component using Slots
+
+In the first chapter we implemented a Twitter item component as part of the exercise and used some composition to structure it. In this exercise use this code as the basis and use a `slot` for the tweet body instead. What are the pros/cons of this variation in your opinion and which do you prefer?
+
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-3/exercise-2).
+
 ## Summary
 
 In this chapter we looked into slots and named slots to compose our components and content in a very flexible way.

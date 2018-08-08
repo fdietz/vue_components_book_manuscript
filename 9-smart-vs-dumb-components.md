@@ -66,6 +66,17 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 
 Separating a component into two cleanly separate components provides more flexibility. We can for example change one component without touching the other component.
 
+## Exercises
+
+### Data Table Refactoring
+
+In this exercise we want to practice refactoring a complex component, by using separating it into a smart and dumb component. I've prepared a small data table example for you.
+
+{width: 50%}
+![Exercise 1 - Smart vs. Dumb Components](/images/data_table.png)
+
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-9/exercise-1).
+
 ## Summary
 
 But, this is by no means a best practice one should apply in all scenarios. The additional complexity due to separation of two concerns must be justified. So, only use this pattern if your component becomes too complicated.

@@ -345,6 +345,15 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 There are a lot of open questions here. For example in the current implementation we cannot just pass along some additional props without changing the HOC component since it needs to pass these props
 explicitly . It's not really a problem for such a small example, but it shows that there is no easy way to compose components using generics HOCs with Vue.js built-in functionality.
 
+## Exercises
+
+### Local Mixin for Media Queries
+
+In a previous exercise from chapter 5 we looked into media queries using the `window.matchMedia` function by building a functional component. This time use the same idea, but package it as a reusable 
+mixin instead. Which approach do you prefer?
+
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/exercise-1).
+
 ## Summary
 
 There's an ongoing discussion in the Vue.js community about the use of HOCs, or High Order Components. These are quite popular in the React community actually.

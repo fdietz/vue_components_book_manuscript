@@ -88,6 +88,23 @@ The `<component>` uses the `currentTabComponent` computed property to render the
 
 Note, how it passes along the `class` prop to the actual component it renders. Nice!
 
+## Exercises
+
+### Improve the Tab Component
+
+The Tab component has currently one drawback. Everytime you switch tabs the components are destroyed and recreated which could be quite costly depending on the complexity of the component. Go ahead and verify this by yourself by adding lifecycle methods for `created`, etc. and some logging statements.
+
+Then do some online research and check if there's a possiblity to reuse the components instead.
+
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-7/exercise-1).
+
+### Dynamic component loading for the Twitter Item Component
+
+Use the same dynamic loading mechanism to dynamically load the appropriate twitter body of type text, image or video.
+
+
+You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-7/exercise-2).
+
 ## Summary
 
 The `<component>` tag is quite a powerful feature and in some use cases it might be easier to use instead of slots and custom code.
