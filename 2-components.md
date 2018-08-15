@@ -288,23 +288,6 @@ Note, that the parent doesn't know about the component's internals. It just know
 
 The event emitted via `this.$emit("event")` is only send to the parent component. It will not bubble up the component hierarchy similar to native DOM events.
 
-## Exercises
-
-## Twitter Item Component Composition
-
-Let's play around with all these new concepts and build something similar to a Twitter stream.
-
-{width=50%}
-![Exercise 1](/images/twitter.png)
-
-I've prepared some initial example content to render a tweet with text, image and an embeeded Youtube video. You can find all content in the `start.html` file.
-
-Your exercise is to refactoring this code using component composition to turn this rather large `<tweet-item>` component into several small components. You can for example start and pull out the avatar into it's own component. Next would be the various combinations of rendering the tweet body and even the actions can be made much nicer. As always there are severals ways how this could be done and I encourage you to try this refactoring and play around with various posibilities.
-
-My feeling is that the actions would be even nicer if they would show different colors on hover, like on actual Twitter!
-
-You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/exercise-1).
-
 ## Summary
 
 In this chapter we explored the base concepts of a component model. We discussed component reuse and encapsulation,

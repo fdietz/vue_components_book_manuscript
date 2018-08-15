@@ -354,56 +354,6 @@ Here's an example from the documentation:
 </div>
 ```
 
-## Exercises
-
-### Match Media Query Component
-
-With the Javascript `matchMedia` API you can check if a certain media query is matching similar to how it is already done in CSS.
-
-Here's an example to check for small screens:
-
-```js
-if (window.matchMedia("(max-width: 640px)").matches) {
-  // screen is smaller than 640px
-} else {
-  // screen is larger
-}
-```
-
-Use this functionality in a headless component in order to conditionally show/hide different content based on matching media query. The headless component should have the query (for example: "(max-width: 640px)") as an input prop and passes along a true/false match via slot scope.
-
-You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/exercise-1).
-
-### Count down Component
-
-With the Javascript API `setTimer` you can count down a given number of seconds. If you use a function which continously calls itself, one can turn that into a count down:
-
-```js
-function nextTick() {
-  if (this.timer) {
-    clearTimeout(this.timer);
-  }
-
-  // call function after 1 second
-  this.timer = setTimeout(this.handleTick, 1000);
-}
-
-nextTick();
-```
-
-Write a headless component which should have the number of seconds as input prop and passes along the remaining seconds and a completed flag via slot scope.
-
-You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/exercise-2).
-
-### Image Carousel
-
-Build an image carousel as depicted in the screenshot.
-
-{width: 50%}
-![Exercise 3 - Image Carousel](/images/carousel.png)
-
-You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/exercise-3).
-
 ## Summary
 
 In this chapter we looked into Headless or Renderless components using Vue.js scoped lots and showed how to create highly reusable components which focus only on the logic and leave the rendering to the client.

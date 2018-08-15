@@ -211,14 +211,6 @@ I> You can find the complete example on [Github](https://github.com/fdietz/vue_c
 
 This is easier to read because we can directly use the `item` variable instead of always going via `slotProps.item`.
 
-## Exercises
-
-### Filtered List Component
-
-The list component is already quite powerful, but there's always room for improvement. How about adding an input field on top of the list which allows a filter as you type experience?
-
-You can find the complete exercise and solution on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/exercise-1).
-
 ## Summary
 
 In this chapter we used scoped slots to allow the parent to access data from the child. This gives us lots of new possibilities which weren't possible before. This feature is especially useful in scenarios where you want to leave the rendering of the slot content to the user of the component. In our case the list component is very reusable by decoupling the rendering of the list items.
