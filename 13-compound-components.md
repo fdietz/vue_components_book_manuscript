@@ -195,7 +195,7 @@ Again, we would like to make the usage as simple as possible. This is how the ac
 </accordion>
 ```
 
-For the accordion component we start with the main container component.
+This time we start with the main container component. We will use the provide/inject pattern and the container component is the provider for all the functionality injected into all children.
 
 ```js
 Vue.component("accordion", {
@@ -236,6 +236,15 @@ Vue.component("accordion", {
 });
 ```
 
+The component manages the expand/collapse state of all children using an `items` object where the key is the `name` of the child and the value is the expanded state. 
+
+Each child must be able to register itself by the parent using the `register` method. The `isActive` method returns the expand/collapse state and the `select` method is called to 
+change the state. The `select` method is a bit more involved because it sets the state to `true` (expanded) for the selected item and to `false` (collapsed) for all other items.
+
+All these methods are then exposed in an `accordion` object using the `provide` feature.
+
+The template of this container component is using a slot to render the children. Not much to do here since all the template handling is handled in the children.
+
 ```html
 <template id="accordion-template">
   <div class="accordion">
@@ -244,7 +253,7 @@ Vue.component("accordion", {
 </template>
 ```
 
-And the accordion items.
+The child component `accordion-item` injects all the methods from the containers:
 
 ```js
 Vue.component("accordion-item", {
@@ -267,6 +276,10 @@ Vue.component("accordion-item", {
 });
 ```
 
+In the `created` lifecycle it registers itself by it's `name`. And it exposes the `isActive` and the `select` methods to the template by calling the injected methods from the parent container.
+
+You might remember the template we used in a previous chapter to render the accordion item:
+
 ```html
 <template id="accordion-item-template">
   <div class="expandable">
@@ -286,7 +299,14 @@ Vue.component("accordion-item", {
 </template>
 ```
 
+It makes use of the `isActive` computed prop to toggle the expanded/collapsed state and the SVG icon changes. The `select` method is called when clicking the +/- button.
+
+Even though it seems that the child component is more involved than the parent, all it does is actually calling some methods from the parent. It doesn't handle any state on its own.
+
 ## Summary
+
+In this chapter we looked into two implementations of the compound component pattern using either `$children` or the provide/inject pattern. Both are valid options, but it highly 
+depends on your use case which way you go.
 
 It is generally seen as a bad practice to design components which rely on `$parent` or `$children`, because it makes it difficult to reuse the components. We have seen that in some cases
 using `$children` is actually not so bad as long as the components are build to work together and the thight coupling simplifies the usage of the component. On the other hand, I haven't 
