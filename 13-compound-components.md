@@ -1,6 +1,6 @@
 # Compound Components
 
-In this chapter we want to look into compound components. These are components which consistent of a combination of multiple components which are tightly coupled.
+In this chapter we want to look into compound components,components which consistent of a combination of multiple components which are tightly coupled.
 
 Here's an example of a compound component usage for tabbed navigation.
 
@@ -24,9 +24,9 @@ Here's an example of a compound component usage for tabbed navigation.
 In order to use this tabbed navigation pattern you work with two actual components which are designed to work closely together. This has the advantage, that the usage of
 this component is super simple and all the logic can be nicely encapsulated.
 
-There no one way to build such a component and in this chapter we will look into to methods. One is relying in `$children` the other is using the provide/inject feature.
+There no one true way to build such a component and in this chapter we will look into two methods. One is relying on `$children` the other is using the provide/inject feature.
 
-## Tabbed Navigation
+## Tabbed Navigation using `$children`
 
 Let's see how we can implement this tabbed navigation, starting with a single tab:
 
@@ -50,9 +50,12 @@ Vue.component("tab", {
 });
 ```
 
-The `tab` components only prop is a `name` for the tab title. And we use an `isActive` boolean state to show if the tab is active in which case we can use some styling to change the background color.
+The `tab` component's only prop is a `name` for the tab title. And we use an `isActive` boolean state to show if the tab is active in which case can show/hide the tab content or change the styling of the 
+tab links.
 
-The `hash` computed prop will become clear when we discuss the parent component, but let's first look into the template:
+The `hash` computed prop will be used by the parent to render a link with an anchor to this particular tab section. This will become much clearer when we discuss the parent component though.
+
+So, let's first look into the template:
 
 ```html
 <template id="tab-component-template">
@@ -62,7 +65,7 @@ The `hash` computed prop will become clear when we discuss the parent component,
 </template>
 ```
 
-It uses a slot for the tab content to allow injection of arbitrary content and uses the `isActive` state to toggle the visibility using the `v-show` directory. Note, that the `name` prop is not used at all, since
+It uses a slot for the tab content to allow injection of arbitrary content and the `isActive` state to toggle the visibility using the `v-show` directory. Note, that the `name` prop is not used at all, since
 the template is only responsible for the tab content part. The rendering of the name and the actual tab is delegated to the parent component.
 
 In order to support screen readers we also set the `aria-hidden` flag depending on the `isActive` state and `role` attribute to `tabpanel`.
@@ -77,10 +80,8 @@ Vue.component("tabs", {
       tabs: []
     }
   },
-  created() {
-    this.tabs = this.$children;
-  },
   mounted() {
+    this.tabs = this.$children;
     if (this.tabs.length) {
       this.selectTab(this.tabs[0].hash);
     }
@@ -104,9 +105,9 @@ Vue.component("tabs", {
 });
 ```
 
-The `created` lifecycle method initializes the `tabs` variable based on the `$children` of the component. And the `mounted` component selects the first child per default using the `selectTab` method.
+The `mounted` lifecycle method initializes the `tabs` variable based on the `$children` of the component and selects the first child per default using the `selectTab` method.
 
-`selectTab` first finds the tab with the matching `hash` and if found it will set for each tab the `isActive` state. Note, that this is the `hash` we saw before in the tab component as a computed property:
+`selectTab` is a bit more involved. It first finds the tab with the matching `hash` and if found it will set the `isActive` state for each tab. Note, that this is the `hash` we saw before in the tab component as a computed property:
 
 ```js
 computed: {
@@ -138,8 +139,7 @@ Now, let's look into the template responsible for rendering all the tabs:
 </template>
 ```
 
-We use a list with the `v-for` directive to render a tab for each child using the `name` and `hash` prop for the link. On link click we call `selectTab` to do the actual selection of the clicked tab and 
-unselects all other tabs.
+The main parts of the template are the list of tab links and the currently visible tab content. We use a `<ul>` list with the `v-for` directive to render a link for each child using the `name` and `hash` prop. On link click we call `selectTab` to do the selection of the clicked tab and deselection of all other tabs.
 
 The actual children are rendered using a slot inside a container div with the `tab-content` class.
 
@@ -168,13 +168,15 @@ We set the `role` attributes for all elements and use the `isActive` state of th
 For a more complete summary about the aria attributes usage I highly recommend [heydonworks.com](http://heydonworks.com/practical_aria_examples/#tab-interface) website which goes into great detail for this 
 particular type of tabbed navigation pattern.
 
-Using `$children` enables us to encapsulate all the business logic in the parent component and leave the child component straight forward to implement.
+Using `$children` enables us to encapsulate all the business logic in the parent component and leave the child component straight forward to implement. But, it also has it's drawbacks. Our compound component
+would break if we would insert another child component which is not a tab and therefore doesn't provide a `name` and `hash`. The component hierachy is tightly coupled, meaning there cannot be another HTML component 
+wrapping the children. The children must be direct descendants of the parent for this pattern to work correctly.
 
 On the other hand this pattern will not work when the actual tab selection would be handled inside the children. We look into such a scenario in our next example.
 
-## Accordion
+## Accordion using Provide/Inject
 
-We have already implemented a rudimentary accordion component in a previous chapter. Let's build on that and turn this into a compound component.
+We already implemented a rudimentary accordion component in a previous chapter. Let's build on that and turn this into a compound component.
 
 {width: 50%}
 ![Accordion](images/accordion.png)
@@ -243,7 +245,17 @@ change the state. The `select` method is a bit more involved because it sets the
 
 All these methods are then exposed in an `accordion` object using the `provide` feature.
 
-The template of this container component is using a slot to render the children. Not much to do here since all the template handling is handled in the children.
+After each child called the `register` function the `items` state looks like this:
+
+```js
+{
+  "Item 1": false,
+  "Item 2": false,
+  "Item 3": false
+}
+```
+
+The template of this container component is using a slot to render the children. Not much to do here since all the rendering is handled in the children.
 
 ```html
 <template id="accordion-template">
@@ -307,6 +319,9 @@ Even though it seems that the child component is more involved than the parent, 
 
 In this chapter we looked into two implementations of the compound component pattern using either `$children` or the provide/inject pattern. Both are valid options, but it highly 
 depends on your use case which way you go.
+
+Compared to using the `$children` the provide/inject implementation is a bit more robust in regard to the component hiearchy. Additionally, it provides a clean API via the provide/inject
+functions. You know exactly what functions are available, whereas in the `$children` method you have to look into the code much more closely to spot the access to the `name` and `hash` of the child.
 
 It is generally seen as a bad practice to design components which rely on `$parent` or `$children`, because it makes it difficult to reuse the components. We have seen that in some cases
 using `$children` is actually not so bad as long as the components are build to work together and the thight coupling simplifies the usage of the component. On the other hand, I haven't 
