@@ -6,7 +6,7 @@ give your components even more flexibility by injecting content into child compo
 For this chapter we use a modal dialog as an example.
 
 {width=50%}
-![Modal Dialog with close button](/images/modal.png)
+![Modal Dialog with close button](images/modal.png)
 
 ## Slots as Content Placeholders
 

@@ -9,7 +9,7 @@ There's one catch though we have not discussed. The content we pass to our slot 
 Probably the most canonical example for this kind of scenario is a todo list which renders for each todo a checkbox with name.
 
 {width=50%}
-![Example 1](/images/list.png)
+![Example 1](images/list.png)
 
 ```html
 <div id="demo">

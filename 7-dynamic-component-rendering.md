@@ -9,7 +9,7 @@ In this chapter we discuss the usage of the `<component>` tag.
 As an example we use a tab navigation where the content of a tab is rendered dynamically.
 
 {width=50%}
-![Example 1](/images/tabs.png)
+![Example 1](images/tabs.png)
 
 Let's start with the tab content:
 
