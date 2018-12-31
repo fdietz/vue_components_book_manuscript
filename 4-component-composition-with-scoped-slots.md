@@ -35,7 +35,7 @@ new Vue({
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-1).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-1).
 
 In the next step we refactor this code into a reusable list component and our goal is to leave it up to the client of the component to decide what and how to render the list item.
 
@@ -80,7 +80,7 @@ And now make use of our new component:
 </div>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-2).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-2).
 
 But, when trying this example we run into a Javascript error message:
 
@@ -135,7 +135,7 @@ Okay let's try this again:
 </div>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-3).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-3).
 
 This time we use the `slot-scope` attribute and assign the name `slotProps` to it. Inside this scoped slot we can access all props passed along via this `slotProps` variable.
 
@@ -179,7 +179,7 @@ Next, we use this method when rendering the list item:
 </template>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-4).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-4).
 
 We add a button with a `click` event which calls our previously defined `remove` function. That's it!
 
@@ -207,7 +207,7 @@ Let's use this in our template:
 </template>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-5).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-5).
 
 This is easier to read because we can directly use the `item` variable instead of always going via `slotProps.item`.
 

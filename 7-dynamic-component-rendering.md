@@ -80,7 +80,7 @@ Next we look into the markup to render the tabs:
 </div>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-7/example-1)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-7/example-1)
 
 We use a `v-for` directive to render a list of tabs using the `currentTab` to set the `active` class. The `@click` event is used to change the `currentTab` state. Clicking on a tab will change the `background-color` to visually indicate the active state.
 

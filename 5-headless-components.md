@@ -63,7 +63,7 @@ new Vue({
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-1)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-1)
 
 The example by itself is not really showing the flexibility of the headless component pattern. But, it exemplifies the complete separation of state management logic and the actual rendering. The latter is completely up to the client to implement. 
 
@@ -145,7 +145,7 @@ Vue.component("Toggle", {
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-2)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-2)
 
 The component is now solely defined via Javascript containing the business logic. No template used at all. Nice! 
 
@@ -182,7 +182,7 @@ And we can achieve it by using markup only:
 ```
 
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-3)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-3)
 
 There is a lot going on here. So, let us break it down!
 
@@ -262,7 +262,7 @@ Vue.component("Toggle", {
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-4)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-4)
 
 The scoped slot passes along the `togglerProps` with the `aria-expanded` attribute and the `togglerEvents` with the `click` event to toggle the state.
 

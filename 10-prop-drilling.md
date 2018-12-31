@@ -66,7 +66,7 @@ new Vue({
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-9/example-1)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-9/example-1)
 
 The Vue instance has the `user` state and passes this user as a prop to the `page-layout` component. You can tell that even a simple user case like renaming the user props, means we have to touch each component definition and template.
 
@@ -132,8 +132,8 @@ Vue.component("user-avatar", {
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-9/example-2)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-9/example-2)
 
 ## Summary
 
-In many cases where you think the complexity might justify integrating [vuex](https://vuex.vuejs.org/) for state management or other approaches, such a refactoring can really simplify your code.
+In many cases where you think the complexity might justify integrating [Vuex](https://vuex.vuejs.org/) for state management or other approaches, such a refactoring can really simplify your code.

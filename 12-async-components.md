@@ -6,7 +6,7 @@ The more components you use, the larger becomes your Javascript payload. Meaning
 
 If you draw a picture of all components, their child components, and again their child components you would end up with a tree connecting all components. The first component of the tree would be your Vue instance. But, when you think about it, the first thing the user will see on your website does not really require all components. It only requires the components which are used on this first page.
 
-So, our goal should be to only load what's required for a page and to asychronously load more components on demand.
+So, our goal should be to only load what's required for a page and to asynchronously load more components on demand.
 
 Vue.js has built-in support to load components asynchronously together with [Webpack](https://webpack.js.org/).
 

@@ -28,7 +28,7 @@ We use the root HTML element with the `demo` id as our element to initiate Vue:
 new Vue({ el: '#demo' })
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-1).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-1).
 
 What did we achieve? We used Vue.js to render this image card. But we can't really reuse this code as is and we don't want to copy and paste and thereby duplicating code.
 
@@ -75,7 +75,7 @@ And then instantiated:
 new Vue({ el: '#demo' })
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-2).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-2).
 
 And voila! We have two cats :-)
 
@@ -132,7 +132,7 @@ And the accompanying template uses this props in the camelCase format again:
 </template>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-3).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-3).
 
 Let's have a look at the result:
 
@@ -188,7 +188,7 @@ Our template uses this count:
 </template>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-4).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-4).
 
 ![Example 4](images/image_card_with_state.png)
 
@@ -282,7 +282,7 @@ new Vue({
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-5).
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-2/example-5).
 
 Note, that the parent doesn't know about the component's internals. It just knows that there's a change event available and that the message sends the component's `count`.
 

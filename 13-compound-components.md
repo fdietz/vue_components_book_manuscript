@@ -320,9 +320,9 @@ Even though it seems that the child component is more involved than the parent, 
 In this chapter we looked into two implementations of the compound component pattern using either `$children` or the provide/inject pattern. Both are valid options, but it highly 
 depends on your use case which way you go.
 
-Compared to using the `$children` the provide/inject implementation is a bit more robust in regard to the component hiearchy. Additionally, it provides a clean API via the provide/inject
+Compared to using the `$children` the provide/inject implementation is a bit more robust in regard to the component hierarchy. Additionally, it provides a clean API via the provide/inject
 functions. You know exactly what functions are available, whereas in the `$children` method you have to look into the code much more closely to spot the access to the `name` and `hash` of the child.
 
 It is generally seen as a bad practice to design components which rely on `$parent` or `$children`, because it makes it difficult to reuse the components. We have seen that in some cases
-using `$children` is actually not so bad as long as the components are build to work together and the thight coupling simplifies the usage of the component. On the other hand, I haven't 
+using `$children` is actually not so bad as long as the components are build to work together and the tight coupling simplifies the usage of the component. On the other hand, I haven't 
 seen any good arguments for using `$parent`.
