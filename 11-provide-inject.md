@@ -2,7 +2,7 @@
 
 When you work on your own components, libraries or plugins for Vue.js you might encounter situations where prop drilling might be the only way to pass along a global value down the component hierarchy. In such a case the Provide/Inject API might be useful. 
 
-It consists of two parts: The "provide" part which exposes some values and the "inject" part which uses these values. The provider of the value is usually high up in the component hierachy, whereas the inject part is some child component.
+It consists of two parts: The "provide" part which exposes some values and the "inject" part which uses these values. The provider of the value is usually high up in the component hierarchy, whereas the inject part is some child component.
 
 As an example we want to look into building our own component library, with for example a button component. The component library should be themed with a light and dark theme. 
 

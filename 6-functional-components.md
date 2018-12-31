@@ -10,7 +10,7 @@ In this chapter we explore how and when to use functional components and the pro
 
 ## Functional components using the vue-cli and SFC
 
-Let's start with a new default project created via the [vue-cli](https://cli.vuejs.org/), following the [offical guide](https://cli.vuejs.org/guide/creating-a-project.html#installation)
+Let's start with a new default project created via the [vue-cli](https://cli.vuejs.org/), following the [official guide](https://cli.vuejs.org/guide/creating-a-project.html#installation)
 using the default setup.
 
 It should generate an `App.vue` and a `HelloWorld.vue` file for you which we start modifying for our example.
@@ -56,7 +56,7 @@ The `HelloWorld` component consists of a template only:
 </template>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-1)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-1)
 
 Note, that the template has an additional `functional` attribute. This flag turns the component into a functional component. Additionally, Vue.js changes how you access the context of the component. Where you previously accessed props like `msg` directly, you now need to use `prop.msg` instead and events via `listeners.click`. 
 
@@ -87,7 +87,7 @@ Vue.component("hello-world", {
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-2)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-2)
 
 The `functional` attribute is used together with a `render` function. We've looked into these `render` functions before in the previous chapter about headless components.
 
@@ -119,7 +119,7 @@ export default {
 </script>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-3)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-3)
 
 Since we use a SFC component again we use a `script` tag for the Javascript code. The `functional` attribute together with the `render` function is used again, but this time the `render` implementation is using JSX syntax. 
 
@@ -142,4 +142,4 @@ More on JSX syntax in the [Vue.js guide](https://vuejs.org/v2/guide/render-funct
 
 I'm not recommending to always use JSX now, but it certainly has it strengths for some use cases and it is therefore beneficial to know the limitations of the Vue.js template language and the pros and cons of JSX compared to that. 
 
-D> I personally favor using Vue.js templates for almost all components. The only reason for me to use JSX is D> when dealing with very dynamic component creation where the number of `v-if` and `v-else` makes the code D> less readible.
+D> I personally favor using Vue.js templates for almost all components. The only reason for me to use JSX is D> when dealing with very dynamic component creation where the number of `v-if` and `v-else` makes the code D> less readable.

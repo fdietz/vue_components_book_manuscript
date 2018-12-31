@@ -96,7 +96,7 @@ With the component in place we can render the demo app:
 </div>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-1)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-1)
 
 Global mixins should only rarely be used since all options are mixed into all components which can quickly get out of hand. More often you might want to use a local mixin instead. 
 
@@ -157,7 +157,7 @@ The template for the `article-card` component is showing the data depending on t
 </template>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-2)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-2)
 
 There's one aspect of a mixin we haven't discussed yet. How intelligent is the actual merging strategy? In fact if your component has it's own state `loading` or `response` it would conflict with the mixin state and would certainly cause confusion. Same goes for methods, components and directive options: The component always has priority. When it comes to lifecyle methods, both will be called but the mixin's method will be called first.
 
@@ -243,7 +243,7 @@ And then use a different template:
   </div>
 </template>
 ```
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-3)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-3)
 
 All options of the base component are reused in our new component, except the template where we decided to use our own. 
 
@@ -340,7 +340,7 @@ export default {
 </script>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-4)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-8/example-4)
 
 There are a lot of open questions here. For example in the current implementation we cannot just pass along some additional props without changing the HOC component since it needs to pass these props
 explicitly . It's not really a problem for such a small example, but it shows that there is no easy way to compose components using generics HOCs with Vue.js built-in functionality.

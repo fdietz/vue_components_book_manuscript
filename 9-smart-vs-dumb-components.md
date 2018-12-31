@@ -62,7 +62,7 @@ With everything in place the Vue instance can be rendered:
 <user-list-container></user-list-container>
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-9/example-1)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-9/example-1)
 
 Separating a component into two cleanly separate components provides more flexibility. We can for example change one component without touching the other component.
 

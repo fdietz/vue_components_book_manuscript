@@ -84,9 +84,9 @@ Vue.component("Request", {
 });
 ```
 
-I> You can find the complete example on [Github](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-14/example-1)
+I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-14/example-1)
 
-The `Request` defines the `url` props as it's only configuration and maintains the `response` and the `loading` state. The `created` lifecycle hook is used to fire the HTTP GET request and places the successfull response in the response state while also changing `loading` to `false`. And finally the `render` function passes this information along via the scoped slot mechanism.
+The `Request` defines the `url` props as it's only configuration and maintains the `response` and the `loading` state. The `created` lifecycle hook is used to fire the HTTP GET request and places the successful response in the response state while also changing `loading` to `false`. And finally the `render` function passes this information along via the scoped slot mechanism.
 
 ## Summary
 
@@ -98,7 +98,7 @@ Here's an example from the documentation:
 <div class="users-list">
   <!-- Apollo Query -->
   <ApolloQuery :query="require('@/graphql/users.gql')">
-    <!-- The result will beautomatically updated -->
+    <!-- The result will be automatically updated -->
     <template slot-scope="{ result: { data, loading } }">
       <!-- Some content -->
       <div v-if="loading">Loading...</div>
