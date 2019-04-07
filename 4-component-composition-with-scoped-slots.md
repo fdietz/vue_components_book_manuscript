@@ -127,7 +127,7 @@ Okay let's try this again:
 ```html
 <div id="demo">
   <List :items="listItems">
-    <div slot-scope="slotProps" class="list-item">
+    <template v-slot:default="slotProps" class="list-item">
       <input type="checkbox" v-model="slotProps.item.completed" class="list-item__checkbox" />
       <div class="list-item__title">{{slotProps.item.name}}</div>
     </div>
@@ -137,9 +137,10 @@ Okay let's try this again:
 
 I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-3).
 
-This time we use the `slot-scope` attribute and assign the name `slotProps` to it. Inside this scoped slot we can access all props passed along via this `slotProps` variable.
+This time we use the `v-slot` directive and assign the name `slotProps` to it. Inside this scoped slot we can access all props passed along via this `slotProps` variable.
 
-T> In 2.5.0+, scope is no longer limited to the `<template>` element, but can instead be used on any element or component in the slot.
+I> The `v-slot` directive was introduced in Vue 2.6.0 as the new unified syntax for named and scoped slots. It replaces the old `slot` and `slot-scope` attributes which are now deprecated. The official [Vue Guide](https://vuejs.org/v2/guide/components-slots.html) has more details about these changes.
+
 
 ## Extending the rendering of the list item
 
@@ -170,7 +171,7 @@ We use the Javascript [splice](https://developer.mozilla.org/en-US/docs/Web/Java
 Next, we use this method when rendering the list item:
 
 ```html
-<template slot-scope="slotProps" class="list-item">
+<template v-slot:default="slotProps" class="list-item">
   <input type="checkbox" v-model="slotProps.item.completed" class="list-item__checkbox" />
   <div class="list-item__title">{{slotProps.item.name}}</div>
   <!--leanpub-start-insert-->
@@ -183,7 +184,7 @@ I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_c
 
 We add a button with a `click` event which calls our previously defined `remove` function. That's it!
 
-## Using Destructuring for the `slot-scope`
+## Using Destructuring for scoped slots
 
 We can further simplify this template by using a modern Javascript trick on the `slot-scope` attribute.
 
@@ -200,7 +201,7 @@ Instead of using the value `slotProps` we can now access the `item` directly.
 Let's use this in our template:
 
 ```html
-<template slot-scope="{item}" class="list-item">
+<template v-slot:default="{item}" class="list-item">
   <input type="checkbox" v-model="item.completed" class="list-item__checkbox" />
   <div class="list-item__title">{{item.name}}</div>
   <button @click="remove(item)" class="list-item__remove">×</button>

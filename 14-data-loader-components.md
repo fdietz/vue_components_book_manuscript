@@ -43,13 +43,13 @@ Let's have a look at the example usage first:
 
 ```html
 <request url="https://jsonplaceholder.typicode.com/posts/1">
-  <div slot-scope="{loading, data}">
+  <template v-slot:default="{ loading, data }">
     <div v-if="loading">Loading...</div>
     <div v-if="!loading">
       {{data.title}}
       {{data.body}}
     </div>
-  </div>
+  </template>
 </request>
 ```
 
@@ -63,7 +63,7 @@ Vue.component("Request", {
     return this.$scopedSlots.default({
       loading: this.loading,
       data: this.response && this.response.data
-    });
+    })[0];
   },
   props: {
     url: String
@@ -99,7 +99,7 @@ Here's an example from the documentation:
   <!-- Apollo Query -->
   <ApolloQuery :query="require('@/graphql/users.gql')">
     <!-- The result will be automatically updated -->
-    <template slot-scope="{ result: { data, loading } }">
+    <template v-slot:default="{ result: { data, loading } }">
       <!-- Some content -->
       <div v-if="loading">Loading...</div>
       <ul v-else>

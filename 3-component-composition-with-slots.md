@@ -95,12 +95,19 @@ The usage of these named slots is quite similar to the default slot:
 
 ```html
 <modal v-if="showModal" @close="showModal = false">
-  <h2 slot="header">Modal Header</h2>
-  <div slot="body">Modal Body</div>
+  <template v-slot:header>
+    <h2>Modal Header</h2>
+  </template>
+  <template v-slot:body>
+    Modal Body
+  </template>
 </modal>
 ```
 
-We can use whatever HTML element we want for our content and use the `slot` attribute to select the appropriate slot we want to use. This not only includes HTML elements but also other Vue.js components.
+We use the `template` element for our content and use the `v-slot` directive to select the appropriate slot we want to use.
+
+I> The `v-slot` directive was introduced in Vue 2.6.0 as the new unified syntax for named and scoped slots. It replaces
+the old `slot` and `slot-scope` attributes which are now deprecated. The official [Vue Guide](https://vuejs.org/v2/guide/components-slots.html) has more details about these changes.
 
 Note, that the `footer` slot is not used in this example. By default the existing slot content will be used. In our case the `footer` slot is defined like this:
 

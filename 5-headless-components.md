@@ -14,7 +14,7 @@ Sometimes it helps to figure out the component requirements when fleshing out fi
 
 ```html
 <Toggle @change="handleChange">
-  <div slot-scope="{active, toggle}">
+  <template v-slot:default="{active, toggle}">
     <button @click="toggle" class="button">Toggle</button>
     <div>{{active ? "yes" : "no"}}</div>
   </div>
@@ -73,7 +73,7 @@ Let's implement another example but this time with a more complex component: the
 
 ```html
 <Toggle @change="handleChange">
-  <div slot-scope="{active, toggle}">
+  <template v-slot:default="{active, toggle}">
     <!--leanpub-start-insert-->
     <switch-toggle :value="active" @input="toggle"></switch-toggle>
     <!--leanpub-end-insert-->
@@ -128,7 +128,7 @@ Vue.component("Toggle", {
     return this.$scopedSlots.default({
       active: this.active,
       toggle: this.toggle
-    });
+    })[0];
   },
   // leanpub-end-insert
   data() {
@@ -164,18 +164,20 @@ And we can achieve it by using markup only:
 
 ```html
 <Toggle @change="handleChange">
-  <div slot-scope="{active, toggle}" class="expandable">
-    <h2 class="expandable__header">
-      Heading 2
-      <button class="expandable__trigger" @click="toggle" aria-expanded="active">
-        <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
-          <rect v-if="active" height="8" width="2" y="1" x="4"/>
-          <rect height="2" width="8" y="4" x="1"/>
-        </svg>
-      </button>
-    </h2>
-    <div v-if="active" class="expandable__content">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+  <template v-slot:default="{active, toggle}">
+    <div class="expandable">
+      <h2 class="expandable__header">
+        Heading 2
+        <button class="expandable__trigger" @click="toggle" aria-expanded="active">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+            <rect v-if="active" height="8" width="2" y="1" x="4"/>
+            <rect height="2" width="8" y="4" x="1"/>
+          </svg>
+        </button>
+      </h2>
+      <div v-if="active" class="expandable__content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+      </div>
     </div>
   </div>
 </Toggle>
@@ -209,24 +211,26 @@ Let's first check how the usage would look like after making these props availab
 
 ```html
 <Toggle @change="handleChange">
-  <div slot-scope="{active, togglerProps, togglerEvents}" class="expandable">
-    <h2 class="expandable__header">
-      Heading 2
-      <button class="expandable__trigger" v-bind="togglerProps" v-on="togglerEvents" >
-        <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
-          <rect v-if="active" height="8" width="2" y="1" x="4"/>
-          <rect height="2" width="8" y="4" x="1"/>
-        </svg> 
-      </button>
-    </h2>
-    <div v-if="active" class="expandable__content">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+  <template v-slot:default="{active, togglerProps, togglerEvents}">
+    <div class="expandable">
+      <h2 class="expandable__header">
+        Heading 2
+        <button class="expandable__trigger" v-bind="togglerProps" v-on="togglerEvents" >
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
+            <rect v-if="active" height="8" width="2" y="1" x="4"/>
+            <rect height="2" width="8" y="4" x="1"/>
+          </svg> 
+        </button>
+      </h2>
+      <div v-if="active" class="expandable__content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+      </div>
     </div>
   </div>
 </Toggle>
 ```
 
-The `slot-scope` now provides `active`, `togglerProps` and `togglerEvents` and the `toggle` is gone. The `togglerProps` is actually not a single prop but an object with multiple props. Is is therefore convenient to use `v-bind` to apply all props automatically. Same goes for the `togglerEvents` where we have to use `v-on` instead, since these are events.
+The scoped slot now provides `active`, `togglerProps` and `togglerEvents` and the `toggle` is gone. The `togglerProps` is actually not a single prop but an object with multiple props. Is is therefore convenient to use `v-bind` to apply all props automatically. Same goes for the `togglerEvents` where we have to use `v-on` instead, since these are events.
 
 The implementation of `Toggle` component slightly changes to pass along these new props:
 
@@ -246,7 +250,7 @@ Vue.component("Toggle", {
         'click': this.toggle
       }
       // leanpub-end-insert
-    });
+    })[0];
   },
   data() {
     return {
