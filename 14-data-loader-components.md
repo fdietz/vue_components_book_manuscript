@@ -55,7 +55,7 @@ Let's have a look at the example usage first:
 
 The `request` component uses the `url` prop to decide which URL we want to request.
 
-The `slot-scope` passes not only the result back as `data` but also gives us a `loading` prop which we use to show a loading indicator while the request is in the loading state. Only after the loading is done we show the response data.
+The scoped slot passes not only the result back as `data` but also gives us a `loading` prop which we use to show a loading indicator while the request is in the loading state. Only after the loading is done we show the response data.
 
 ```js
 Vue.component("Request", {

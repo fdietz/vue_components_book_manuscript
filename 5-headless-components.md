@@ -17,11 +17,11 @@ Sometimes it helps to figure out the component requirements when fleshing out fi
   <template v-slot:default="{active, toggle}">
     <button @click="toggle" class="button">Toggle</button>
     <div>{{active ? "yes" : "no"}}</div>
-  </div>
+  </template>
 </Toggle>
 ```
 
-We start with a button which toggles the `active` state. The `active` and `toggle` props are passed along via a `slot-scope` as seen already in the previous chapter. The `change` event is useful to users of the `Toggle` component to get notified of changes.
+We start with a button which toggles the `active` state. The `active` and `toggle` props are passed along via a scoped slot as seen already in the previous chapter. The `change` event is useful to users of the `Toggle` component to get notified of changes.
 
 The template of our `Toggle` only really needs to use the `slot` mechanism to pass these props along:
 

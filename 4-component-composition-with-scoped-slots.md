@@ -186,7 +186,7 @@ We add a button with a `click` event which calls our previously defined `remove`
 
 ## Using Destructuring for scoped slots
 
-We can further simplify this template by using a modern Javascript trick on the `slot-scope` attribute.
+We can further simplify this template by using a modern Javascript trick on the scoped slot attribute.
 
 Here's an example of using Javascript "destructuring" to access an attribute of an object:
 
