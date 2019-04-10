@@ -83,7 +83,7 @@ And voila! We have two cats :-)
 
 Now, two cats are obviously better than one cat and we showed that we can have several instances of our `image-card` component on the same page. 
 
-We now have the means to reuse this component in our app. And if you think about it, it's actually quite remarkable that this includes our HTML, CSS and Javascript code all wrapped up in a component.
+We now have the means to reuse this component in our app. And if you think about it, it's actually quite remarkable that this includes our HTML, CSS and JavaScript code all wrapped up in a component.
 
 But still, this component is not very useful, isn't it? It is just not flexible enough! It would be awesome if we could change
 the image and text body for each component.
@@ -164,7 +164,7 @@ Components can have state using the `data` attribute:
   });
 ```
 
-A> Note, that `data` is returning a function instead of only a Javascript object `data: { count: 0 }`.
+A> Note, that `data` is returning a function instead of only a JavaScript object `data: { count: 0 }`.
 A> This is required, so that each component instance can maintain an independent copy of the returned data.
 A> Read more about this in the [Vue.js Guide](https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function).
 
