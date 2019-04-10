@@ -91,7 +91,7 @@ I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_c
 
 The `functional` attribute is used together with a `render` function. We've looked into these `render` functions before in the previous chapter about headless components.
 
-Every argument passed along to the render function is what we call the render context. It includes data, listeners, props, slots, parent, injections, etc. In our example we used Javascript destructuring to only pick what we need in our function. You can read more background about render functions in the official [Vue.js guide](https://vuejs.org/v2/guide/render-function.html).
+Every argument passed along to the render function is what we call the render context. It includes data, listeners, props, slots, parent, injections, etc. In our example we used JavaScript destructuring to only pick what we need in our function. You can read more background about render functions in the official [Vue.js guide](https://vuejs.org/v2/guide/render-function.html).
 
 Compared to the first example using SFC it looks like a lot of boilerplate code. But, this can be much cleaner when using JSX instead.
 
@@ -121,9 +121,9 @@ export default {
 
 I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-6/example-3)
 
-Since we use a SFC component again we use a `script` tag for the Javascript code. The `functional` attribute together with the `render` function is used again, but this time the `render` implementation is using JSX syntax. 
+Since we use a SFC component again we use a `script` tag for the JavaScript code. The `functional` attribute together with the `render` function is used again, but this time the `render` implementation is using JSX syntax. 
 
-When compared to normal Vue.js templates we use single curly braces instead of the mustache syntax and for events we use `onClick` instead of `v-on:click`. But, this is only scratching the surface here. The interesting thing about JSX is that everything in these curly braces is all Javascript and converted to Javascript functions via the `h` argument.
+When compared to normal Vue.js templates we use single curly braces instead of the mustache syntax and for events we use `onClick` instead of `v-on:click`. But, this is only scratching the surface here. The interesting thing about JSX is that everything in these curly braces is all JavaScript and converted to JavaScript functions via the `h` argument.
 
 Here's an example of rendering a list in JSX:
 

@@ -147,7 +147,7 @@ Vue.component("Toggle", {
 
 I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-5/example-2)
 
-The component is now solely defined via Javascript containing the business logic. No template used at all. Nice! 
+The component is now solely defined via JavaScript containing the business logic. No template used at all. Nice! 
 
 You can read up some more details in the [Vue.js Guide](https://vuejs.org/v2/guide/render-function.html#Slots).
 

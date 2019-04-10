@@ -2,7 +2,7 @@
 
 In this chapter we look into how to load components asynchronously to optimize the loading of a website. 
 
-The more components you use, the larger becomes your Javascript payload. Meaning your users have to wait longer before they can start using your website.
+The more components you use, the larger becomes your JavaScript payload. Meaning your users have to wait longer before they can start using your website.
 
 If you draw a picture of all components, their child components, and again their child components you would end up with a tree connecting all components. The first component of the tree would be your Vue instance. But, when you think about it, the first thing the user will see on your website does not really require all components. It only requires the components which are used on this first page.
 

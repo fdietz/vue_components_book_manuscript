@@ -82,7 +82,7 @@ And now make use of our new component:
 
 I> You can find the complete example on [GitHub](https://github.com/fdietz/vue_components_book_examples/tree/master/chapter-4/example-2).
 
-But, when trying this example we run into a Javascript error message:
+But, when trying this example we run into a JavaScript error message:
 
 ```html
 ReferenceError: item is not defined
@@ -166,7 +166,7 @@ new Vue({
 });
 ```
 
-We use the Javascript [splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) function to remove the item using it's index from `listItems`.
+We use the JavaScript [splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) function to remove the item using it's index from `listItems`.
 
 Next, we use this method when rendering the list item:
 
@@ -186,9 +186,9 @@ We add a button with a `click` event which calls our previously defined `remove`
 
 ## Using Destructuring for scoped slots
 
-We can further simplify this template by using a modern Javascript trick on the scoped slot attribute.
+We can further simplify this template by using a modern JavaScript trick on the scoped slot attribute.
 
-Here's an example of using Javascript "destructuring" to access an attribute of an object:
+Here's an example of using JavaScript "destructuring" to access an attribute of an object:
 
 ```js
 const item = slotProps.item;
